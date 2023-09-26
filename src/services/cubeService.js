@@ -33,8 +33,20 @@ exports.create = (cubeData) => {
   cubes.push(newCube);
   return newCube;
 };
-exports.getAll = () => {
-  return [...cubes];
+exports.getAll = (search, from, to) => {
+  let filteredCubes = [...cubes];
+
+  if (search) {
+    filteredCubes = filteredCubes.filter((cube) =>
+      cube.name.toLowerCase().includes(search.toLowerCase())
+    );
+  }
+  if (from) {
+  }
+  if (to) {
+  }
+  console.log(filteredCubes);
+  return filteredCubes;
 };
 exports.getSingleCube = (id) => {
   return cubes.find((cube) => cube.id === id);
