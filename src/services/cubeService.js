@@ -42,8 +42,14 @@ exports.getAll = (search, from, to) => {
     );
   }
   if (from) {
+    filteredCubes = filteredCubes.filter(
+      (cube) => cube.difficultyLevel >= Number(from)
+    );
   }
   if (to) {
+    filteredCubes = filteredCubes.filter(
+      (cube) => cube.difficultyLevel <= Number(to)
+    );
   }
   console.log(filteredCubes);
   return filteredCubes;
