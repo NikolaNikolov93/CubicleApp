@@ -36,3 +36,6 @@ exports.create = (cubeData) => {
 exports.getAll = () => {
   return [...cubes];
 };
+exports.getSingleCube = (id) => {
+  return cubes.find((cube) => cube.id === id);
+};
