@@ -4,8 +4,8 @@ exports.create = async (cubeData) => {
   const cube = await Cube.create(cubeData);
   return cube;
 };
-exports.getAll = (search, from, to) => {
-  let filteredCubes = [...cubes];
+exports.getAll = async (search, from, to) => {
+  let filteredCubes = await Cube.find().lean();
 
   if (search) {
     filteredCubes = filteredCubes.filter((cube) =>
@@ -26,5 +26,5 @@ exports.getAll = (search, from, to) => {
   return filteredCubes;
 };
 exports.getSingleCube = (id) => {
-  return cubes.find((cube) => cube.id === id);
+  return Cube.findById(id);
 };

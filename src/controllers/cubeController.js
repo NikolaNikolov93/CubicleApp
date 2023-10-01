@@ -14,9 +14,10 @@ router.post("/create", async (req, res) => {
   });
   res.redirect("/");
 });
-router.get("/:cubeId/details", (req, res) => {
+router.get("/:cubeId/details", async (req, res) => {
   const { cubeId } = req.params;
-  const cube = cubeServices.getSingleCube(cubeId);
+  const cube = await cubeServices.getSingleCube(cubeId).lean();
+  console.log(cube);
   if (!cube) {
     res.redirect("404");
   }
