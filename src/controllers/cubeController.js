@@ -4,9 +4,9 @@ const cubeServices = require("../services/cubeService");
 router.get("/create", (req, res) => {
   res.render("create");
 });
-router.post("/create", (req, res) => {
+router.post("/create", async (req, res) => {
   const { name, description, imageUrl, difficultyLevel } = req.body;
-  cubeServices.create({
+  await cubeServices.create({
     name,
     description,
     imageUrl,
