@@ -22,7 +22,6 @@ exports.getAll = async (search, from, to) => {
       (cube) => cube.difficultyLevel <= Number(to)
     );
   }
-  console.log(filteredCubes);
   return filteredCubes;
 };
 exports.getSingleCube = (id) => {
